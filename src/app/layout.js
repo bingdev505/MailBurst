@@ -12,7 +12,14 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
+  : process.env.NEXT_PUBLIC_VERCEL_URL
+    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    : 'https://mailburst.vercel.app';
+
 export const metadata = {
+  metadataBase: new URL(baseUrl),
   title: {
     default: "MailBurst | Free Disposable Temporary Email",
     template: "%s | MailBurst"
@@ -22,7 +29,7 @@ export const metadata = {
   openGraph: {
     title: 'MailBurst | Temporary Email',
     description: 'Keep your primary inbox pristine. Generate secure, instant disposable emails on demand.',
-    url: 'https://mailburst.vercel.app',
+    url: baseUrl,
     siteName: 'MailBurst',
     locale: 'en_US',
     type: 'website',

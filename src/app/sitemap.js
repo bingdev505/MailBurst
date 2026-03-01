@@ -1,7 +1,11 @@
 import { blogPosts } from '@/data/blogPosts';
 
 export default function sitemap() {
-    const baseUrl = 'https://mailburst.vercel.app';
+    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}`
+        : process.env.NEXT_PUBLIC_VERCEL_URL
+            ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+            : 'https://mailburst.vercel.app';
 
     // Core pages
     const coreRoutes = [
