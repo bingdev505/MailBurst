@@ -13,8 +13,29 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
-  title: "MailBurst | LIGHT EDITION",
-  description: "Secure, disposable, and professional temporary email service.",
+  title: {
+    default: "MailBurst | Free Disposable Temporary Email",
+    template: "%s | MailBurst"
+  },
+  description: "Secure, instant, disposable, and professional temporary email service. Protect your privacy online and avoid spam with our 10-minute mail alternative.",
+  keywords: ["temporary email", "disposable email", "temp mail", "fake email", "10 minute mail", "throwaway email", "privacy"],
+  openGraph: {
+    title: 'MailBurst | Temporary Email',
+    description: 'Keep your primary inbox pristine. Generate secure, instant disposable emails on demand.',
+    url: 'https://mailburst.vercel.app',
+    siteName: 'MailBurst',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MailBurst | Temporary Email',
+    description: 'Keep your primary inbox pristine. Generate secure, instant disposable emails on demand.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  }
 };
 
 export default function RootLayout({ children }) {
