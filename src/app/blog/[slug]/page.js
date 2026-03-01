@@ -46,7 +46,7 @@ export default function BlogPostPage() {
                     animate={{ opacity: 1, x: 0 }}
                 >
                     <Link href="/blog" className="inline-flex items-center gap-2 text-slate-400 hover:text-secondary transition-colors font-bold uppercase tracking-widest text-[10px]">
-                        <ChevronLeft size={14} /> Back to Chronicles
+                        <ChevronLeft size={14} /> Back to Blog
                     </Link>
                 </motion.div>
 
@@ -114,28 +114,6 @@ export default function BlogPostPage() {
 
 
 
-                {/* End of Content Section */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="py-12 flex flex-col items-center justify-center text-center space-y-4"
-                >
-                    <div className="w-12 h-px bg-slate-200" />
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">End of Chronicles</p>
-                    <div className="w-12 h-px bg-slate-200" />
-                </motion.div>
-
-                {/* CTA Section */}
-                <div className="pt-8 text-center">
-                    <Link
-                        href="/blog"
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-slate-900 text-white font-black rounded-full hover:bg-slate-800 transition-all hover:scale-105 shadow-2xl shadow-slate-900/20 uppercase tracking-[0.2em] text-sm"
-                    >
-                        <ArrowLeft size={20} />
-                        Back to Chronicles
-                    </Link>
-                </div>
             </div>
         </main>
     );

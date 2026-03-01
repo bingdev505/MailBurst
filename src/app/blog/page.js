@@ -105,18 +105,6 @@ export default function BlogPage() {
 
 
 
-                {/* End of Content Section (The "Fix") */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="py-12 flex flex-col items-center justify-center text-center space-y-4"
-                >
-                    <div className="w-12 h-px bg-slate-200" />
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">End of Chronicles</p>
-                    <div className="w-12 h-px bg-slate-200" />
-                </motion.div>
-
                 {/* CTA Section */}
                 <div className="pt-8 text-center">
                     <Link
