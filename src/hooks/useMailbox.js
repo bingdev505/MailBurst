@@ -15,7 +15,7 @@ export function useMailbox() {
         setIsLoading(true);
         try {
             // 1. Get available domains
-            const domainsResponse = await fetch('/api/mail?path=/domains');
+            const domainsResponse = await fetch('https://api.mail.tm/domains');
             const domainsData = await domainsResponse.json();
             const domain = domainsData['hydra:member'][0].domain;
 
@@ -24,22 +24,22 @@ export function useMailbox() {
             const address = `${randomString}@${domain}`;
             const password = 'password123'; // Static password for temp accounts is fine
 
-            const createResponse = await fetch('/api/mail', {
+            const createResponse = await fetch('https://api.mail.tm/accounts', {
                 method: 'POST',
-                body: JSON.stringify({
-                    path: '/accounts',
-                    body: { address, password }
-                })
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ address, password })
             });
             const accountData = await createResponse.json();
 
             // 3. Get JWT token
-            const tokenResponse = await fetch('/api/mail', {
+            const tokenResponse = await fetch('https://api.mail.tm/token', {
                 method: 'POST',
-                body: JSON.stringify({
-                    path: '/token',
-                    body: { address, password }
-                })
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ address, password })
             });
             const tokenData = await tokenResponse.json();
 
@@ -61,7 +61,7 @@ export function useMailbox() {
         if (isManual) setIsRefreshing(true);
 
         try {
-            const response = await fetch(`/api/mail?path=/messages`, {
+            const response = await fetch(`https://api.mail.tm/messages`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             const data = await response.json();
@@ -80,7 +80,7 @@ export function useMailbox() {
     const getMessageContent = useCallback(async (id) => {
         if (!token) return null;
         try {
-            const response = await fetch(`/api/mail?path=/messages/${id}`, {
+            const response = await fetch(`https://api.mail.tm/messages/${id}`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             return await response.json();
@@ -93,7 +93,7 @@ export function useMailbox() {
     const deleteMessage = useCallback(async (id) => {
         if (!token) return false;
         try {
-            const response = await fetch(`/api/mail?path=/messages/${id}`, {
+            const response = await fetch(`https://api.mail.tm/messages/${id}`, {
                 method: 'DELETE',
                 headers: { 'Authorization': `Bearer ${token}` }
             });
