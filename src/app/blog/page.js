@@ -103,36 +103,7 @@ export default function BlogPage() {
                     ))}
                 </div>
 
-                {/* Featured Card */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    className="premium-card p-2 bg-slate-900 shadow-2xl overflow-hidden relative"
-                >
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/20 blur-[100px] rounded-full -mr-32 -mt-32" />
-                    <div className="bg-white/5 backdrop-blur-3xl rounded-[26px] p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 relative z-10 border border-white/10">
-                        <div className="flex-1 space-y-6 text-center md:text-left">
-                            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter leading-none">
-                                Get the latest privacy <br />
-                                hacks delivered.
-                            </h2>
-                            <p className="text-white/60 text-lg font-medium max-w-md">
-                                Join 50,000+ digital citizens securing their online presence with MailBurst Insights.
-                            </p>
-                        </div>
-                        <div className="w-full md:w-auto flex flex-col sm:flex-row gap-4">
-                            <input
-                                type="email"
-                                placeholder="your@email.com"
-                                className="px-8 py-5 bg-white/5 border border-white/10 rounded-2xl text-white font-bold focus:outline-none focus:border-secondary transition-all w-full md:w-80"
-                            />
-                            <button className="px-10 py-5 bg-white text-slate-900 font-black rounded-2xl hover:bg-slate-100 transition-all shadow-xl uppercase tracking-widest text-sm">
-                                Subscribe
-                            </button>
-                        </div>
-                    </div>
-                </motion.div>
+
 
                 {/* End of Content Section (The "Fix") */}
                 <motion.div
